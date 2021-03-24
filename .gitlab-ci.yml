@@ -5,6 +5,8 @@ demo_job_1:
     - echo "Hello, world"
 
 build:
+  tags:
+    - ci
   stage: build
   script:
     - make
