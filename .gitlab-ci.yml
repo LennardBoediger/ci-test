@@ -3,3 +3,8 @@ demo_job_1:
     - ci
   script:
     - echo "Hello, world"
+
+build:
+  stage: build
+  script:
+    - make
