@@ -13,4 +13,4 @@ build:
     - make
   artifacts:
     paths:
-      - hello
+      - hellow
