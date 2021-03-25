@@ -1,4 +1,5 @@
 demo_job_1:
+  stage: test
   tags:
     - ci
   script:
@@ -10,3 +11,6 @@ build:
   stage: build
   script:
     - make
+  artifacts:
+    paths:
+      - test
