@@ -1,5 +1,5 @@
 demo_job_1:
-  stage: test
+  stage: .pre
   tags:
     - ci
   script:
@@ -14,3 +14,4 @@ build:
   artifacts:
     paths:
       - hellow
+    expire_in: 1 week
