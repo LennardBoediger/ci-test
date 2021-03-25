@@ -13,5 +13,5 @@ build:
     - make
   artifacts:
     paths:
-      - hellow
+      - hello
     expire_in: 1 week
