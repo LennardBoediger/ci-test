@@ -1,9 +1,9 @@
-demo_job_1:
+pipline_test:
   stage: .pre
   tags:
     - ci
   script:
-    - echo "Hello, world"
+    - echo "Pipline Works!!"
 
 build:
   tags:
