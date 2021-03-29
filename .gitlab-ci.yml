@@ -6,6 +6,7 @@ pipline_test:
 build:
   stage: build
   script:
+    - apt-get -y install make
     - make
   artifacts:
     paths:
