@@ -1,13 +1,13 @@
-image: docker:19.03.12
+image: docker:latest
 
-before_script:
-  - docker info
+services:
+  - docker:dind
 
 build:
   stage: build
   script:
-    - docker build -t my-docker-image .
-    - docker run my-docker-image /script/to/run/tests
+    - docker build -t test .
+
 
 #pipline_test:
 #  stage: .pre
