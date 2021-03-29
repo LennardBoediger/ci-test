@@ -1,13 +1,13 @@
-image: docker:stable
+image: docker:19.03.12
 
-services:
-  - docker:dind
+before_script:
+  - docker info
 
 build:
   stage: build
   script:
-    - docker run hello-world
-
+    - docker build -t my-docker-image .
+    - docker run my-docker-image /script/to/run/tests
 
 #pipline_test:
 #  stage: .pre
