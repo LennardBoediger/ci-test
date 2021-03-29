@@ -1,15 +1,26 @@
-pipline_test:
-  stage: .pre
-  script:
-    - echo "Pipline Works!!"
+image: docker:stable
+
+services:
+  - docker:dind
 
 build:
   stage: build
   script:
-    - apt-get update && apt-get install make
-    - apt-get install -y gcc
-    - make
-  artifacts:
-    paths:
-      - hello
-    expire_in: 1 week
+    - docker run hello-world
+
+
+#pipline_test:
+#  stage: .pre
+#  script:
+#    - echo "Pipline Works!!"
+#
+#build:
+#  stage: build
+#  script:
+#    - apt-get update && apt-get install make
+#    - apt-get install -y gcc
+#    - make
+#  artifacts:
+#    paths:
+#      - hello
+#    expire_in: 1 week
