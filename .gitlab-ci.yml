@@ -1,12 +1,19 @@
 image: docker:latest
 
 services:
-  - docker:dind
+  - name: docker:dind
+    entrypoint: [ "env", "-u", "DOCKER_HOST" ]
+    command: [ "dockerd-entrypoint.sh" ]
+
 
 build:
   stage: build
   script:
     - docker build -t test .
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
 
 
 #pipline_test:
