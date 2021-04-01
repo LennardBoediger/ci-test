@@ -1,34 +1,33 @@
-image: docker:latest
-
-services:
-  - name: docker:dind
-    entrypoint: [ "env", "-u", "DOCKER_HOST" ]
-    command: [ "dockerd-entrypoint.sh" ]
-
-
-build:
-  stage: build
-  script:
-    - docker build -t test .
-  variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_DRIVER: overlay2
-    DOCKER_TLS_CERTDIR: ""
-
-
-#pipline_test:
-#  stage: .pre
-#  script:
-#    - echo "Pipline Works!!"
+#image: docker:latest
+#
+#services:
+#  - name: docker:dind
+#    entrypoint: [ "env", "-u", "DOCKER_HOST" ]
+#    command: [ "dockerd-entrypoint.sh" ]
+#
 #
 #build:
 #  stage: build
 #  script:
-#    - apt-get update && apt-get install make
-#    - apt-get install -y gcc
-#    - make
-#  artifacts:
-#    paths:
-#      - hello
-#    expire_in: 1 week
-# do it!
+#    - docker build -t test .
+#  variables:
+#    DOCKER_HOST: tcp://docker:2375/
+#    DOCKER_DRIVER: overlay2
+#    DOCKER_TLS_CERTDIR: ""
+
+
+pipline_test:
+  stage: .pre
+  script:
+    - echo "Pipline Works!!"
+
+build:
+  stage: build
+  script:
+    - apt-get update && apt-get install make
+    - apt-get install -y gcc
+    - make
+  artifacts:
+    paths:
+      - hello
+    expire_in: 1 week
