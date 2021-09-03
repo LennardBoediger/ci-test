@@ -3,14 +3,14 @@ ubuntu-build:
   script:
     - echo "Heallo Ubuntu"
   tags:
-    docker
+    - docker
 
 mac-build:
   stage: build
   script:
-    echo "Hello Mac"
+    - echo "Hello Mac"
   tags:
-    macos
+    - macos
 
 #build-artifacts:
 #  stage: build
