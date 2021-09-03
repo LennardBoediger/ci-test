@@ -1,24 +1,26 @@
-ubuntu-build:
-  stage: build
+hello-ubuntu:
+  stage: .pre
   script:
-    - echo "Heallo Ubuntu"
+    - echo "Hello Ubuntu"
+    - lsb_release -a
   tags:
     - docker
 
-mac-build:
-  stage: build
+hello-mac:
+  stage: .pre
   script:
     - echo "Hello Mac"
+    - system_profiler SPSoftwareDataType
   tags:
     - macos
 
-#build-artifacts:
-#  stage: build
-#  script:
-#    - apt-get update && apt-get install make
-#    - apt-get install -y gcc
-#    - make
-#  artifacts:
-#    paths:
-#      - hello
-#    expire_in: 1 week#
+mac-build-artifacts:
+  stage: build
+  tags:
+    - macos
+  script:
+    - make
+  artifacts:
+    paths:
+      - hello
+    expire_in: 1 week
