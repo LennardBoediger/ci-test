@@ -1,10 +1,10 @@
-hello-ubuntu:
-  stage: .pre
-  script:
-    - echo "Hello Ubuntu"
-    - lsb_release -a
-  tags:
-    - docker
+#hello-ubuntu:
+#  stage: .pre
+#  script:
+#    - echo "Hello Ubuntu"
+#    - lsb_release -a
+#  tags:
+#    - docker
 
 hello-mac:
   stage: .pre
